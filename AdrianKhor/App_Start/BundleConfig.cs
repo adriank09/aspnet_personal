@@ -8,6 +8,26 @@ namespace AdrianKhor
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            const string bowerComponents = "~/bower_components";
+            string[] scripts = 
+            {
+                bowerComponents + "/jQuery/dist/jquery.js",
+                bowerComponents + "/bootstrap/dist/js/bootstrap.js",
+                bowerComponents + "/popper.js/dist/popper.js",
+                bowerComponents + "/popper.js/dist/popper-utils.js",
+                bowerComponents + "/vue/dist/vue.js"
+            };
+            string[] styles =
+            {
+                bowerComponents + "/bootstrap/dist/css/bootstrap.css",
+                bowerComponents + "/font-awesome/css/font-awesome.css"
+            };
+
+            bundles.Add(new ScriptBundle("~/bundles/scripts").Include(scripts));
+            bundles.Add(new ScriptBundle("~/bundles/styles").Include(styles));
+
+
+            
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -26,6 +46,7 @@ namespace AdrianKhor
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+                      
         }
     }
 }
